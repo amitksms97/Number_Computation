@@ -14,4 +14,15 @@ array=(${computation[@]})
 echo "Result in Ascending order:"
 n=$(printf '%s\n' "${array[@]}" | sort -n)
 echo $n
+echo "Results in Descending Order:"
+for ((i=0; i<4; i++))
+do
+        if [ ${array[$i]} -gt ${array[$i+1]} ]
+        then
+                temp=${array[$i]}
+                array[$i]=${array[$i+1]}
+                array[$i+1]=$temp
+        fi
+echo ${array[$i]}
+done
 
